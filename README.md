@@ -1,5 +1,5 @@
 # Go-Weather-Info
 
-run GO server: `go run main.go`
+run GO application: `go run main.go`
 
 And enter the name of a city.
