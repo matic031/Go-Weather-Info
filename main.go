@@ -60,7 +60,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Print weather information
+	// Encode weather data into JSON format
+	jsonData, err := json.Marshal(weather)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	fmt.Printf("Current weather in %s:\n", weather.Name)
 	fmt.Println()
 	fmt.Printf("  Temperature: %.2f°C\n", weather.Main.Temp)
@@ -69,4 +74,12 @@ func main() {
 	fmt.Printf("  Description: %s\n", weather.Weather[0].Description)
 	fmt.Printf("  Wind Speed: %.1f m/s\n", weather.Wind.Speed)
 	fmt.Printf("  Cloudiness: %.0f%%\n", weather.Clouds.All)
+	fmt.Println()
+	fmt.Println()
+	fmt.Printf("JSON Format:")
+	fmt.Println()
+	fmt.Println()
+
+	// Print weather information in JSON format
+	fmt.Println(string(jsonData))
 }
